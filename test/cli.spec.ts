@@ -9,7 +9,7 @@ const runMochaPup = (options: { args: string[]; fixture?: string }) =>
     spawnAsync(
         'node',
         ['-r', '@ts-tools/node/r', cliSrcPath, '--no-colors', '-l', ...options.args.map(arg => `"${arg}"`)],
-        { cwd: resolve(fixturesRoot, options.fixture || '.'), shell: true }
+        { cwd: resolve(fixturesRoot, options.fixture || '.'), shell: true, pipeStreams: true }
     );
 
 describe('mocha-pup', function() {
